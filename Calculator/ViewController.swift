@@ -10,6 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var display: UILabel!
+    
+    var userIsCurrentlyTypingANumber: Bool = false
+    
+    @IBAction func appendDigit(sender: UIButton) {
+        let digit = sender.currentTitle
+        if userIsCurrentlyTypingANumber {
+            display.text = display.text! + digit!
+        } else {
+            display.text = digit
+            userIsCurrentlyTypingANumber = true
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
